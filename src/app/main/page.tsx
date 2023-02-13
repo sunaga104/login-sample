@@ -5,33 +5,37 @@ import { useRouter } from "next/navigation";
 
 export default function Main() {
   const router = useRouter();
-
-  const user = localStorage.getItem("user");
+  let user: String | null = "";
+  if (localStorage) {
+    user = localStorage.getItem("user");
+  }
 
   const logout = () => {
-    localStorage.removeItem("token");
-    localStorage.removeItem("user");
-    localStorage.clear();
+    if (localStorage) {
+      localStorage.removeItem("token");
+      localStorage.removeItem("user");
+      localStorage.clear();
+    }
     router.push("/login");
   };
 
-  const action = async ()=>{
+  const action = async () => {
     try {
       const response = await fetch("http://localhost:3000/api/action", {
         method: "POST",
         headers: {
           Accept: "application/json",
           ContentType: "application/json",
-          authorization:`Bearer ${localStorage.getItem("token")}`
+          authorization: `Bearer ${localStorage.getItem("token")}`,
         },
-        body:""
+        body: "",
       });
       const jsonData = await response.json();
-      alert(jsonData.message)
+      alert(jsonData.message);
     } catch (err) {
-      console.log(err)
+      console.log(err);
     }
-  }
+  };
 
   return (
     <div className={styles.main}>
