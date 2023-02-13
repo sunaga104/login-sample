@@ -7,23 +7,24 @@ import { isReturnStatement } from "typescript";
 export default function Main() {
   const router = useRouter();
   let user: String | null = "";
-  if (localStorage) {
+  try{
     user = localStorage.getItem("user");
+  } catch (e) {
+    console.log(e)
   }
 
   const logout = () => {
-    if (localStorage) {
+    try {
       localStorage.removeItem("token");
       localStorage.removeItem("user");
       localStorage.clear();
+      router.push("/login");
+    } catch (e){
+      console.log(e)
     }
-    router.push("/login");
   };
 
   const action = async () => {
-    if(!localStorage){
-      return
-    }
     try {
       const response = await fetch("http://localhost:3000/api/action", {
         method: "POST",
