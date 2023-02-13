@@ -28,7 +28,7 @@ export default function Main() {
 
   const action = async () => {
     try {
-      const response = await fetch("http://localhost:3000/api/action", {
+      const response = await fetch("https://login-sample-six.vercel.app/api/action", {
         method: "POST",
         headers: {
           Accept: "application/json",

@@ -16,7 +16,7 @@ export default function Login() {
     setErrMsg("");
     const body = JSON.stringify({ userId, password });
     try {
-      const response = await fetch("http://localhost:3000/api/login", {
+      const response = await fetch("https://login-sample-six.vercel.app/api/login", {
         method: "POST",
         headers: {
           Accept: "application/json",
