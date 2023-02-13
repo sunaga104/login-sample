@@ -1,0 +1,40 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: #919191;
+  span{
+    margin: 0;
+    color: red;
+    display: block;
+  }
+  .loginForm {
+    margin-top: 100px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    padding: 20px 70px;
+    box-shadow: 10px 10px 10px rgba(114, 114, 114, 0.6);
+    h1{
+      margin: 5px;
+    }
+    input {
+      padding: 10px;
+      margin:10px 0;
+      width: 200px;
+    }
+    button {
+      padding: 10px;
+      margin-top: 10px;
+      margin-bottom: 20px;
+      width: 225px;
+      border: 1px solid #919191;
+      background-color: rgb(113, 177, 241);
+      &:hover{
+        background-color: rgb(75, 153, 232);
+      }
+    }
+  }
+}

@@ -1,0 +1,27 @@
+.main {
+  header{
+    display: flex;
+    background-color: rgb(113, 177, 241);
+    width: 100vw;
+    height: 90px;
+    justify-content: end;
+    a{
+      color: rgb(255, 255, 255);
+      &:hover{
+        opacity: 0.5;
+        cursor: pointer;
+      }
+    }
+    p{
+      color: rgb(255, 255, 255);
+      margin-top: 30px;
+    }
+    div{
+      margin: 30px 50px;
+    }
+  }
+  main{
+    padding-left: 50px;
+  }
+}
+
