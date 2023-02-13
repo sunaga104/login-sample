@@ -2,6 +2,7 @@
 
 import styles from "./page.module.scss";
 import { useRouter } from "next/navigation";
+import { isReturnStatement } from "typescript";
 
 export default function Main() {
   const router = useRouter();
@@ -20,6 +21,9 @@ export default function Main() {
   };
 
   const action = async () => {
+    if(!localStorage){
+      return
+    }
     try {
       const response = await fetch("http://localhost:3000/api/action", {
         method: "POST",
