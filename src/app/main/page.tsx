@@ -16,6 +16,9 @@ export default function Main() {
   }, []);
 
   const logout = () => {
+    if(!localStorage.getItem("user")){
+      router.push("/login");
+    }
     try {
       localStorage.removeItem("token");
       localStorage.removeItem("user");
