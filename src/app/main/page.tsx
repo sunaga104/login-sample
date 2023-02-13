@@ -3,15 +3,17 @@
 import styles from "./page.module.scss";
 import { useRouter } from "next/navigation";
 import { isReturnStatement } from "typescript";
+import { useEffect, useState } from "react";
 
 export default function Main() {
   const router = useRouter();
-  let user: String | null = "";
-  try{
-    user = localStorage.getItem("user");
-  } catch (e) {
-    console.log(e)
-  }
+  const [user, setUser] = useState<string | null>('')
+
+  useEffect(() => {
+    if(localStorage.getItem("user")){
+      setUser(localStorage.getItem("user"))
+    }
+  }, []);
 
   const logout = () => {
     try {
@@ -19,8 +21,8 @@ export default function Main() {
       localStorage.removeItem("user");
       localStorage.clear();
       router.push("/login");
-    } catch (e){
-      console.log(e)
+    } catch (e) {
+      console.log(e);
     }
   };
 

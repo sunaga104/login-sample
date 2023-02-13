@@ -1,9 +1,11 @@
 "use client";
 
-import { useRouter } from 'next/navigation';
+import Link from "next/link";
 
 export default function Index() {
-  const router = useRouter()
-  router.push('/login')
-  return <></>
+  return (
+    <>
+      <Link href="/login" >ログイン画面</Link>
+    </>
+  );
 }
